@@ -25,12 +25,11 @@ class UndoRedoStack < Stack
 
   def undo
     raise NothingToUndoError unless has_commands?
-    @position -= 1
-    self[position]
+    self[position-1].tap { @position -= 1 }
   end
 
   def redo
-    raise NothingToRedoError if position == commands_size
-    self[position].tap { @position += 1}
+    raise NothingToRedoError if position == size
+    self[position].tap { @position += 1 }
   end
 end
