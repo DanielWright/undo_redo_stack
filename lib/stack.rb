@@ -7,7 +7,7 @@ class Stack
     @stack = []
   end
 
-  def_delegators :@stack, :empty?, :size, :slice, :push, :[]
+  def_delegators :@stack, :empty?, :size, :push, :[]
 
   def pop
     raise Stack::EmptyStackError if empty?

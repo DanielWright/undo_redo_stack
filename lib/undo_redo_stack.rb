@@ -18,7 +18,7 @@ class UndoRedoStack < Stack
   end
 
   def do(*commands)
-    stack = self.slice(0,position).push *commands
+    stack = self[0,position].push *commands
     push *stack
     @position = size
   end
